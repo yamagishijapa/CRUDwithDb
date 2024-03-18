@@ -3,6 +3,8 @@ package br.com.fullstack.moduloumsemananove.controller;
 import br.com.fullstack.moduloumsemananove.model.Livro;
 import br.com.fullstack.moduloumsemananove.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,5 +25,10 @@ public class LivroController {
     @GetMapping
     public List<Livro> listarLivro(){
         return livroService.listarLivro();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarLivro(@PathVariable Long id) {
+        return livroService.deletarLivro(id);
     }
 }

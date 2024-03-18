@@ -8,6 +8,8 @@ import br.com.fullstack.moduloumsemananove.repository.LivroRepository;
 import br.com.fullstack.moduloumsemananove.repository.MembroRepository;
 import br.com.fullstack.moduloumsemananove.request.EmprestimoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,15 @@ public class EmprestimoService {
 
     public List<Emprestimo> listarEmprestimo(){
         return emprestimoRepository.findAll();
+    }
+
+    public ResponseEntity<?> deletarEmprestimo(Long id) {
+        if(!emprestimoRepository.existsById(id)){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("O emprestimo com ID " + id + " não foi encontrado.");
+        }
+
+        emprestimoRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     private Emprestimo validaEmprestimo(EmprestimoRequest emprestimoRequest){
