@@ -10,6 +10,7 @@ import br.com.fullstack.moduloumsemananove.request.EmprestimoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -28,6 +29,10 @@ public class EmprestimoService {
     public Emprestimo criarEmprestimo(EmprestimoRequest emprestimoRequest){
         Emprestimo emprestimo = validaEmprestimo(emprestimoRequest);
         return emprestimoRepository.save(emprestimo);
+    }
+
+    public List<Emprestimo> listarEmprestimo(){
+        return emprestimoRepository.findAll();
     }
 
     private Emprestimo validaEmprestimo(EmprestimoRequest emprestimoRequest){

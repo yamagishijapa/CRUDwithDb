@@ -5,6 +5,8 @@ import br.com.fullstack.moduloumsemananove.repository.MembroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MembroService {
 
@@ -13,5 +15,9 @@ public class MembroService {
 
     public Membro criarMembro(Membro membro) {
         return membroRepository.save(membro);
+    }
+
+    public List<Membro> listarMembro(){
+        return membroRepository.findAll();
     }
 }
