@@ -5,6 +5,8 @@ import br.com.fullstack.moduloumsemananove.repository.VisitanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VisitanteService {
 
@@ -13,5 +15,9 @@ public class VisitanteService {
 
     public Visitante criarVisitante(Visitante visitante){
         return visitanteRepository.save(visitante);
+    }
+
+    public List<Visitante> listarVisitante(){
+        return visitanteRepository.findAll();
     }
 }

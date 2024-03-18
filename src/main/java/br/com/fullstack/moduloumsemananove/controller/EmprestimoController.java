@@ -25,6 +25,11 @@ public class EmprestimoController {
         return emprestimoService.criarEmprestimo(emprestimo);
     }
 
+    @GetMapping
+    public List<Emprestimo> listarEmprestimo(){
+        return emprestimoService.listarEmprestimo();
+    }
+
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<List<ValidationErrorDetails>> handleIllegalArgumentException(NoSuchElementException ex) {
         List<ValidationErrorDetails> errors = new ArrayList<>();

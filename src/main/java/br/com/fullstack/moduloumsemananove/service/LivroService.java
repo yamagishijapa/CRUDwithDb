@@ -5,6 +5,8 @@ import br.com.fullstack.moduloumsemananove.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LivroService {
 
@@ -13,5 +15,9 @@ public class LivroService {
 
     public Livro criarLivro(Livro livro) {
         return livroRepository.save(livro);
+    }
+
+    public List<Livro> listarLivro(){
+        return livroRepository.findAll();
     }
 }
