@@ -31,4 +31,14 @@ public class VisitanteService {
         visitanteRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    public ResponseEntity<?> atualizarVisitante(Long visitanteId, String nome, String telefone) {
+        if (!visitanteRepository.existsById(visitanteId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Visitante com ID " + visitanteId + " não encontrado.");
+        }
+
+        visitanteRepository.updateVisitante(visitanteId, nome, telefone);
+
+        return ResponseEntity.ok(visitanteRepository.findById(visitanteId));
+    }
 }

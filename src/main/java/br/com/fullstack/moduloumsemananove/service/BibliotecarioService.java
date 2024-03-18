@@ -32,4 +32,14 @@ public class BibliotecarioService {
         bibliotecarioRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    public ResponseEntity<?> atualizarBibliotecario(Long bibliotecarioId, String nome, String email, String senha) {
+        if (!bibliotecarioRepository.existsById(bibliotecarioId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bibliotecario com ID " + bibliotecarioId + " não encontrado.");
+        }
+
+        bibliotecarioRepository.updateBibliotecario(bibliotecarioId, nome, email, senha);
+
+        return ResponseEntity.ok(bibliotecarioRepository.findById(bibliotecarioId));
+    }
 }

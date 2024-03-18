@@ -31,4 +31,12 @@ public class BibliotecarioController {
     public ResponseEntity<?> deletar(@PathVariable Long id) {
         return bibliotecarioService.deletarBibliotecario(id);
     }
+
+    @PutMapping("/{bibliotecarioId}")
+    public ResponseEntity<?> atualizarBibliotecario(@PathVariable Long bibliotecarioId,
+                                            @RequestParam(value = "nome", required = false) String nome,
+                                            @RequestParam(value = "email", required = false) String email,
+                                            @RequestParam(value = "senha", required = false) String senha) {
+        return bibliotecarioService.atualizarBibliotecario(bibliotecarioId, nome, email, senha);
+    }
 }

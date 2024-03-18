@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Repository
 public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
@@ -15,5 +15,5 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
     @Transactional
     @Modifying
     @Query("UPDATE Emprestimo e SET e.dataDevolucao = COALESCE(:dataDevolucao, e.dataDevolucao), e.dataEmprestimo = COALESCE(:dataEmprestimo, e.dataEmprestimo) WHERE e.id = :emprestimoId")
-    void updateEmprestimo(Long emprestimoId, Date dataDevolucao, Date dataEmprestimo);
+    void updateEmprestimo(Long emprestimoId, LocalDate dataDevolucao, LocalDate dataEmprestimo);
 }

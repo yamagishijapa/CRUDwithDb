@@ -355,6 +355,173 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Update",
+			"item": [
+				{
+					"name": "Atualiza Livro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/livro/3?titulo=Teste&autor=Teste&anoPublicacao=2001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livro",
+								"3"
+							],
+							"query": [
+								{
+									"key": "titulo",
+									"value": "Teste"
+								},
+								{
+									"key": "autor",
+									"value": "Teste"
+								},
+								{
+									"key": "anoPublicacao",
+									"value": "2001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Membro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/membro/3?nome=Teste 3&endereco=Rua do Teste - 120&telefone=48111111111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"membro",
+								"3"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Teste 3"
+								},
+								{
+									"key": "endereco",
+									"value": "Rua do Teste - 120"
+								},
+								{
+									"key": "telefone",
+									"value": "48111111111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Emprestimos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprestimo/2?dataEmprestimo=2024-03-22&dataDevolucao=2024-04-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprestimo",
+								"2"
+							],
+							"query": [
+								{
+									"key": "dataEmprestimo",
+									"value": "2024-03-22"
+								},
+								{
+									"key": "dataDevolucao",
+									"value": "2024-04-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Bibliotecario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bibliotecario/3?nome=Teste&email=teste.teste@teste.com.br&senha=48999999999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bibliotecario",
+								"3"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Teste"
+								},
+								{
+									"key": "email",
+									"value": "teste.teste@teste.com.br"
+								},
+								{
+									"key": "senha",
+									"value": "48999999999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Visitante",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/visitante/3?nome=Teste&telefone=48999999999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visitante",
+								"3"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Teste"
+								},
+								{
+									"key": "telefone",
+									"value": "48999999999"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

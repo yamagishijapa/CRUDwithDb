@@ -31,4 +31,12 @@ public class LivroController {
     public ResponseEntity<?> deletarLivro(@PathVariable Long id) {
         return livroService.deletarLivro(id);
     }
+
+    @PutMapping("/{livroId}")
+    public ResponseEntity<?> atualizarLivro(@PathVariable Long livroId,
+                                            @RequestParam(value = "titulo", required = false) String titulo,
+                                            @RequestParam(value = "autor", required = false) String autor,
+                                            @RequestParam(value = "anoPublicacao", required = false) Integer anoPublicacao) {
+        return livroService.atualizarLivro(livroId, titulo, autor, anoPublicacao);
+    }
 }
