@@ -31,4 +31,14 @@ public class MembroService {
         membroRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    public ResponseEntity<?> atualizarMembro(Long membroId, String endereco, String nome, String telefone) {
+        if (!membroRepository.existsById(membroId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Membro com ID " + membroId + " não encontrado.");
+        }
+
+        membroRepository.updateMembro(membroId, endereco, nome, telefone);
+
+        return ResponseEntity.ok(membroRepository.findById(membroId));
+    }
 }

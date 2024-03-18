@@ -31,4 +31,12 @@ public class MembroController {
     public ResponseEntity<?> deletar(@PathVariable Long id) {
         return membroService.deletarMembro(id);
     }
+
+    @PutMapping("/{membroId}")
+    public ResponseEntity<?> atualizarMembro(@PathVariable Long membroId,
+                                                    @RequestParam(value = "endereco", required = false) String endereco,
+                                                    @RequestParam(value = "nome", required = false) String nome,
+                                                    @RequestParam(value = "telefone", required = false) String telefone) {
+        return membroService.atualizarMembro(membroId, endereco, nome, telefone);
+    }
 }

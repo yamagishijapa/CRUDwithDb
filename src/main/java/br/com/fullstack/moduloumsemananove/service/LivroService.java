@@ -31,4 +31,14 @@ public class LivroService {
         livroRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    public ResponseEntity<?> atualizarLivro(Long livroId, String titulo, String autor, Integer anoPublicacao) {
+        if (!livroRepository.existsById(livroId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Livro com ID " + livroId + " não encontrado.");
+        }
+
+        livroRepository.updateLivro(livroId, titulo, autor, anoPublicacao);
+
+        return ResponseEntity.ok(livroRepository.findById(livroId));
+    }
 }

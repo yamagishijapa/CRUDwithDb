@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -44,6 +45,15 @@ public class EmprestimoService {
 
         emprestimoRepository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    public ResponseEntity<?> atualizarEmprestimo(Long emprestimoId, LocalDate dataEmprestimo, LocalDate dataDevolucao){
+        if(!emprestimoRepository.existsById(emprestimoId)){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("O emprestimo com ID " + emprestimoId + " não foi encontrado.");
+        }
+
+        emprestimoRepository.updateEmprestimo(emprestimoId, dataDevolucao, dataEmprestimo);
+        return ResponseEntity.status(HttpStatus.OK).body(emprestimoRepository.findById(emprestimoId));
     }
 
     private Emprestimo validaEmprestimo(EmprestimoRequest emprestimoRequest){

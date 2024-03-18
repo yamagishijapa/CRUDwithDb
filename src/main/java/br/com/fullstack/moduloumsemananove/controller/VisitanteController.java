@@ -31,4 +31,11 @@ public class VisitanteController {
     public ResponseEntity<?> deletar(@PathVariable Long id) {
         return visitanteService.deletarVisitante(id);
     }
+
+    @PutMapping("/{visitanteId}")
+    public ResponseEntity<?> atualizarVisitante(@PathVariable Long visitanteId,
+                                             @RequestParam(value = "nome", required = false) String nome,
+                                             @RequestParam(value = "telefone", required = false) String telefone) {
+        return visitanteService.atualizarVisitante(visitanteId, nome, telefone);
+    }
 }
